@@ -10,12 +10,30 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 		m_bRunning = true;
 
-		if (!TheTextureManager::Instance()->load("Assets/animate-alpha.png", "animate", m_pRenderer)) {
+		if (!TheTextureManager::Instance()->load("Assets/002.png", "animate", m_pRenderer)) {
 			return false;
 		}
 
-		m_go.load(100, 100, 128, 82, "animate");
-		m_player.load(300, 300, 128, 82, "animate");
+		//m_go = new GameObject();
+		//m_player = new Player();
+		//m_enemy = new Enemy();
+		m_monster1 = new Monster();
+		m_monster2 = new Monster();
+
+		//m_go->load(100, 100, 129, 165, "animate");
+		//m_player->load(300, 300, 129, 165, "animate");
+		//m_enemy->load(0, 0, 129, 165, "animate");
+		m_monster1->load(100, 100, 129, 165, "animate");
+		m_monster2->load(300, 300, 129, 165, "animate");
+
+		m_monster1->setMovingspeed(1, 0);
+		m_monster2->setMovingspeed(2, 0);
+
+		//m_gameObjects.push_back(m_go);
+		//m_gameObjects.push_back(m_player);
+		//m_gameObjects.push_back(m_enemy);
+		m_gameObjects.push_back(m_monster1);
+		m_gameObjects.push_back(m_monster2);
 	}
 	else {
 		m_bRunning = false;
@@ -27,14 +45,16 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 void Game::render() {
 	SDL_RenderClear(m_pRenderer);
 	SDL_SetRenderDrawColor(m_pRenderer, 0, 150, 255, 255);
-	m_go.draw(m_pRenderer);
-	m_player.draw(m_pRenderer);
+	for (std::vector<GameObject*>::size_type i = 0; i != m_gameObjects.size(); i++) {
+		m_gameObjects[i]->draw(m_pRenderer);
+	}
 	SDL_RenderPresent(m_pRenderer);
 }
 
 void Game::update() {
-	m_go.update();
-	m_player.update();
+	for (std::vector<GameObject*>::size_type i = 0; i != m_gameObjects.size(); i++) {
+		m_gameObjects[i]->update();
+	}
 }
 
 void Game::clean() {
