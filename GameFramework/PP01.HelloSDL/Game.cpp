@@ -1,5 +1,4 @@
 #include "Game.h"
-#include "SDL_image.h"
 
 bool Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen) {
 	if (SDL_Init(SDL_INIT_EVERYTHING) >= 0) {
@@ -16,33 +15,22 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		return false;
 	}
 
-	//SDL_Surface* pTempSurface = IMG_Load("Assets/animate.png");
-	SDL_Surface* pTempSurface = IMG_Load("Assets/animate-alpha.png");
-
-	SDL_SetRenderDrawColor(m_pRenderer, 0, 255, 125, 255);
-	m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface);
-
-	SDL_FreeSurface(pTempSurface);
-
-	m_sourceRectangle.w = 128;
-	m_sourceRectangle.h = 82;
-
-	m_destinationRectangle.x = m_sourceRectangle.x = 0;
-	m_destinationRectangle.y = m_sourceRectangle.y = 0;
-	m_destinationRectangle.w = m_sourceRectangle.w;
-	m_destinationRectangle.h = m_sourceRectangle.h;
+	m_textureManager.load("Assets/animate-alpha.png", "animate", m_pRenderer);
 
 	return true;
 }
 
+
+
 void Game::render() {
 	SDL_RenderClear(m_pRenderer);
-	SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle, &m_destinationRectangle);
+	m_textureManager.draw("animate", 0, 0, 128, 82, m_pRenderer);
+	m_textureManager.drawFrame("animate", 100, 100, 128, 82, 1, m_currentFrame, m_pRenderer);
 	SDL_RenderPresent(m_pRenderer);
 }
 
 void Game::update() {
-	m_sourceRectangle.x = 128 * int(((SDL_GetTicks() / 100) % 6));
+	m_currentFrame = int(((SDL_GetTicks() / 100) % 6));
 }
 
 void Game::clean() {
