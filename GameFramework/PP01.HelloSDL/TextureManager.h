@@ -1,9 +1,8 @@
 #pragma once
 
-#include <SDL.h>
-#include <map>
+#include "GameObject.h"
 
-class TextureManager {
+class TextureManager : public GameObject {
 private:
 	static TextureManager* s_pInstance;
 	std::map<std::string, SDL_Texture*> m_textureMap;

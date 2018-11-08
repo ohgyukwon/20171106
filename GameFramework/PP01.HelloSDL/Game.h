@@ -4,6 +4,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "TextureManager.h"
+#include "Player.h"
 
 class Game
 {
@@ -17,12 +18,9 @@ public:
 	void clean();
 	bool running() { return m_bRunning; }
 private:
+	GameObject m_go;
+	Player m_player;
 	SDL_Window * m_pWindow;
 	SDL_Renderer* m_pRenderer;
-	//SDL_Texture* m_pTexture;
-	//SDL_Rect m_sourceRectangle;
-	//SDL_Rect m_destinationRectangle;
-	//TextureManager m_textureManager;
-	int m_currentFrame;
 	bool m_bRunning;
 };
