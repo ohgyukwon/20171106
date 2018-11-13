@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "InputHandler.h"
 
 Game* Game::s_pInstance = 0;
 
@@ -17,7 +18,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		}
 
 		m_gameObjects.push_back(new Player(new LoaderParams(100, 100, 128, 82, "animate")));
-		m_gameObjects.push_back(new Enemy(new LoaderParams(300, 300, 128, 82, "animate")));
+		//m_gameObjects.push_back(new Enemy(new LoaderParams(300, 300, 128, 82, "animate")));
 	}
 	else {
 		m_bRunning = false;
@@ -28,7 +29,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 void Game::render() {
 	SDL_RenderClear(m_pRenderer);
-	SDL_SetRenderDrawColor(m_pRenderer, 0, 150, 255, 255);
+	SDL_SetRenderDrawColor(m_pRenderer, 0, 150, 255, 255);	// ¹è°æ »ö±ò
 	for (std::vector<GameObject*>::size_type i = 0; i != m_gameObjects.size(); i++) {
 		m_gameObjects[i]->draw();
 	}
@@ -42,6 +43,7 @@ void Game::update() {
 }
 
 void Game::clean() {
+	TheInputHandler::Instance()->clean();
 	std::cout << "cleanning game\n";
 	SDL_DestroyWindow(m_pWindow);
 	SDL_DestroyRenderer(m_pRenderer);
@@ -49,14 +51,9 @@ void Game::clean() {
 }
 
 void Game::handleEvents() {
-	SDL_Event event;
-	if (SDL_PollEvent(&event)) {
-		switch (event.type) {
-		case SDL_QUIT:
-			m_bRunning = false;
-			break;
-		default:
-			break;
-		}
-	}
+	TheInputHandler::Instance()->update();
+}
+
+void Game::quit() {
+	m_bRunning = false;
 }

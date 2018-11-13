@@ -21,6 +21,7 @@ public:
 	SDL_Renderer* getRenderer() { return m_pRenderer; }
 	void update();
 	void clean();
+	void quit();
 
 	static Game* Instance() {
 		if (s_pInstance == 0) {
