@@ -3,11 +3,15 @@
 #include "TextureManager.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "GameStateMachine.h"
+#include "MenuState.h"
+#include "PlayState.h"
 
 class Game {
 private:
 	Game() {}
 	static Game* s_pInstance;
+	GameStateMachine* m_pGameStateMachine;
 	std::map<std::string, SDL_Texture*> m_textureMap;
 	std::vector<GameObject*> m_gameObjects;
 	SDL_Window * m_pWindow;
