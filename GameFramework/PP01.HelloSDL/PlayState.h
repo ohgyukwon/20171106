@@ -1,6 +1,10 @@
 #pragma once
 
 #include "GameState.h"
+#include "TextureManager.h"
+#include "Game.h"
+
+class GameObject;
 
 class PlayState :public GameState {
 public:
@@ -19,4 +23,5 @@ public:
 private:
 	static const std::string s_playID;
 	static PlayState* s_pInstance;
+	std::vector<GameObject*> m_gameObjects;
 };
