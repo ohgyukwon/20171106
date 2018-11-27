@@ -1,0 +1,10 @@
+diff a/GameFramework/PP01.HelloSDL/MenuButton.h b/GameFramework/PP01.HelloSDL/MenuButton.h	(rejected hunks)
+@@ -4,7 +4,7 @@
+ #include "InputHandler.h"
+ 
+ enum button_state {
+-	MOUSE_QUT = 0,
++	MOUSE_OUT = 0,
+ 	MOUSE_OVER = 1,
+ 	CLICKED = 2
+ };

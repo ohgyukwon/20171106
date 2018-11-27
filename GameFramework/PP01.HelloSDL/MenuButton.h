@@ -4,7 +4,7 @@
 #include "InputHandler.h"
 
 enum button_state {
-	MOUSE_OUT = 0,
+	MOUSE_QUT = 0,
 	MOUSE_OVER = 1,
 	CLICKED = 2
 };
