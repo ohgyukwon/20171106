@@ -45,6 +45,9 @@
     <Filter Include="PlayState">
       <UniqueIdentifier>{d4ea092b-0091-4ed8-91b5-80a377975529}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MenuButton">
+      <UniqueIdentifier>{d1ce0ca2-ac7d-4585-97d8-b66e093f82a4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Enemy.cpp">
@@ -76,6 +79,9 @@
     </ClCompile>
     <ClCompile Include="PlayState.cpp">
       <Filter>PlayState</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuButton.cpp">
+      <Filter>MenuButton</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +123,9 @@
     </ClInclude>
     <ClInclude Include="MenuState.h">
       <Filter>MenuState</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuButton.h">
+      <Filter>MenuButton</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

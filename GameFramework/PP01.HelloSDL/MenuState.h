@@ -1,6 +1,9 @@
 #pragma once
 
 #include "GameState.h"
+#include "MenuButton.h"
+#include "TextureManager.h"
+#include "Game.h"
 
 class MenuState :public GameState {
 public:
@@ -17,6 +20,8 @@ public:
 		return s_pInstance;
 	}
 private:
+	static void s_menuToPlay();
+	static void s_exitFromMenu();
 	static const std::string s_menuID;
 	static MenuState* s_pInstance;
 };

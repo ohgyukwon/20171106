@@ -23,6 +23,7 @@ public:
 	void render();
 	bool running() { return m_bRunning; }
 	SDL_Renderer* getRenderer() { return m_pRenderer; }
+	GameStateMachine* getStateMachine() { return m_pGameStateMachine; }
 	void update();
 	void clean();
 	void quit();
