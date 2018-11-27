@@ -29,7 +29,7 @@ void MenuButton::update() {
 			m_currentFrame = MOUSE_OVER;
 		}
 		else {
-			m_currentFrame = MOUSE_QUT;
+			m_currentFrame = MOUSE_OUT;
 		}
 	}
 	SDLGameObject::update();
