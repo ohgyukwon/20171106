@@ -3,6 +3,7 @@
 #include "GameState.h"
 #include "TextureManager.h"
 #include "Game.h"
+#include "PauseState.h"
 
 class GameObject;
 

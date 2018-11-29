@@ -5,6 +5,9 @@ PlayState* PlayState::s_pInstance = 0;
 
 
 void PlayState::update() {
+	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_ESCAPE)) {
+		TheGame::Instance()->getStateMachine()->changeState(PauseState::Instance());
+	}
 	for (int i = 0; i < m_gameObjects.size(); i++) {
 		m_gameObjects[i]->update();
 	}

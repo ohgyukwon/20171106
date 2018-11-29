@@ -48,6 +48,9 @@
     <Filter Include="MenuButton">
       <UniqueIdentifier>{d1ce0ca2-ac7d-4585-97d8-b66e093f82a4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PauseState">
+      <UniqueIdentifier>{6b804f90-0557-41df-a0d2-aa6074f84d2c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Enemy.cpp">
@@ -82,6 +85,9 @@
     </ClCompile>
     <ClCompile Include="MenuButton.cpp">
       <Filter>MenuButton</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseState.cpp">
+      <Filter>PauseState</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +132,9 @@
     </ClInclude>
     <ClInclude Include="MenuButton.h">
       <Filter>MenuButton</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseState.h">
+      <Filter>PauseState</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

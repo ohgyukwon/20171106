@@ -5,7 +5,6 @@
 class GameStateMachine {
 public:
 	void changeState(GameState* pState);
-	void pushState(GameState* pState);
 	void popState();
 	void update();
 	void render();
