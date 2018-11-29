@@ -4,6 +4,7 @@
 #include "TextureManager.h"
 #include "Game.h"
 #include "PauseState.h"
+#include "GameOverState.h"
 
 class GameObject;
 
@@ -21,6 +22,7 @@ public:
 		}
 		return s_pInstance;
 	}
+	bool checkCollision(SDLGameObject* p1, SDLGameObject* p2);
 private:
 	static const std::string s_playID;
 	static PlayState* s_pInstance;

@@ -51,6 +51,12 @@
     <Filter Include="PauseState">
       <UniqueIdentifier>{6b804f90-0557-41df-a0d2-aa6074f84d2c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="AnimatedGraphic">
+      <UniqueIdentifier>{b2e2f53d-0735-4262-b892-6f53dace1833}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameOverState">
+      <UniqueIdentifier>{aea4a0e3-61ab-48ce-9f4c-8e51c250b307}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Enemy.cpp">
@@ -88,6 +94,12 @@
     </ClCompile>
     <ClCompile Include="PauseState.cpp">
       <Filter>PauseState</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimatedGraphic.cpp">
+      <Filter>AnimatedGraphic</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverState.cpp">
+      <Filter>GameOverState</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +147,12 @@
     </ClInclude>
     <ClInclude Include="PauseState.h">
       <Filter>PauseState</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverState.h">
+      <Filter>GameOverState</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatedGraphics.h">
+      <Filter>AnimatedGraphic</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

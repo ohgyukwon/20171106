@@ -1,9 +1,10 @@
 #include "Enemy.h"
 
 Enemy::Enemy(const LoaderParams* pParams) :
-
-	SDLGameObject(pParams) {
-
+SDLGameObject(pParams) {
+	m_velocity.setY(2);
+	m_velocity.setX(0.001);
+	m_numFrames = 5;
 }
 
 void Enemy::draw() {
@@ -11,22 +12,20 @@ void Enemy::draw() {
 }
 
 void Enemy::update() {
-	m_velocity.setX(0);
-	m_velocity.setY(0);
-	handleInput();
-	m_currentFrame = int(((SDL_GetTicks() / 100) % 6));
+	m_currentFrame = int(((SDL_GetTicks() / 100) % m_numFrames));
+	if (m_position.getY() < 0) {
+		m_velocity.setY(2);
+	}
+	if (m_position.getY() > 400) {
+		m_velocity.setY(-2);
+	}
 	SDLGameObject::update();
 }
 
 void Enemy::clean() {
-
+	SDLGameObject::clean();
 }
 
 void Enemy::handleInput() {
-	if (TheInputHandler::Instance()->getMouseButtonState(LEFT)) {
-		m_velocity.setX(1);
-	}
-
-	Vector2D* vec = TheInputHandler::Instance()->getMousePosition();
-	m_velocity = (*vec - m_position) / 100;
+	
 }
