@@ -33,9 +33,9 @@ bool GameOverState::onEnter() {
 	if (!TheTextureManager::Instance()->load("Assets/restart.png", "restartButton", TheGame::Instance()->getRenderer())) {
 		return false;
 	}
-	GameObject* gameOverText = new AnimatedGraphics(new LoaderParams(200, 100, 190, 30, "gameoverText"),2);
-	GameObject* button1 = new MenuButton(new LoaderParams(200, 200, 200, 80, "mainButton"), s_gameOverToMain);
-	GameObject* button2 = new MenuButton(new LoaderParams(200, 300, 200, 80, "restartButton"), s_restartPlay);
+	GameObject* gameOverText = new AnimatedGraphics(new LoaderParams(500, 200, 190, 30, "gameoverText"),2);
+	GameObject* button1 = new MenuButton(new LoaderParams(500, 400, 200, 80, "mainButton"), s_gameOverToMain);
+	GameObject* button2 = new MenuButton(new LoaderParams(500, 550, 200, 80, "restartButton"), s_restartPlay);
 	m_gameObjects.push_back(gameOverText);
 	m_gameObjects.push_back(button1);
 	m_gameObjects.push_back(button2);

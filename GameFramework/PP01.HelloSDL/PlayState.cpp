@@ -26,16 +26,23 @@ void PlayState::render() {
 }
 
 bool PlayState::onEnter() {
-	if (!TheTextureManager::Instance()->load("Assets/helicopter.png", "helicopter", TheGame::Instance()->getRenderer())) {
+	if (!TheTextureManager::Instance()->load("Assets/player.png", "player", TheGame::Instance()->getRenderer())) {
 		return false;
 	}
-	if (!TheTextureManager::Instance()->load("Assets/helicopter2.png", "helicopter2", TheGame::Instance()->getRenderer())) {
+	if (!TheTextureManager::Instance()->load("Assets/wall.png", "wall", TheGame::Instance()->getRenderer())) {
 		return false;
 	}
-	GameObject* player = new Player(new LoaderParams(500, 100, 128, 55, "helicopter"));
-	GameObject* enemy = new Enemy(new LoaderParams(100, 100, 128, 55, "helicopter2"));
+	if (!TheTextureManager::Instance()->load("Assets/g_ground.png", "ground", TheGame::Instance()->getRenderer())) {
+		return false;
+	}
+	GameObject* player = new Player(new LoaderParams(500, 500, 30,30, "player"));
+	GameObject* wall = new Enemy(new LoaderParams(800, 600, 50, 50, "wall"));
+	GameObject* ground1 = new Enemy(new LoaderParams(0, 0, 1200, 100, "ground"));
+	GameObject* ground2 = new Enemy(new LoaderParams(0, 700, 1200, 100, "ground"));
 	m_gameObjects.push_back(player);
-	m_gameObjects.push_back(enemy);
+	m_gameObjects.push_back(wall);
+	m_gameObjects.push_back(ground1);
+	m_gameObjects.push_back(ground2);
 	std::cout << "entering PlayState\n";
 	return true;
 }
@@ -47,7 +54,8 @@ bool PlayState::onExit() {
 	m_gameObjects.clear();
 
 	TheTextureManager::Instance()->clearFromTextureMap("helicopter");
-	TheTextureManager::Instance()->clearFromTextureMap("helicopter2");
+	TheTextureManager::Instance()->clearFromTextureMap("wall");
+	TheTextureManager::Instance()->clearFromTextureMap("ground");
 	std::cout << "exiting PlayState\n";
 	return true;
 }

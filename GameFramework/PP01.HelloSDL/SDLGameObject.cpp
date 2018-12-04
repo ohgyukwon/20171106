@@ -12,6 +12,7 @@ SDLGameObject::SDLGameObject(const LoaderParams* pParams) :
 	m_currentRow = 1;
 	m_currentFrame = 1;
 	m_numFrames = 1;
+	m_gravity = 5.f;
 }
 
 void SDLGameObject::draw() {

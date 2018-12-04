@@ -22,8 +22,8 @@ bool MenuState::onEnter() {
 	if (!TheTextureManager::Instance()->load("Assets/exit.png", "exitButton", TheGame::Instance()->getRenderer())) {
 		return false;
 	}
-	GameObject* button1 = new MenuButton(new LoaderParams(100, 100, 400, 100, "playButton"), s_menuToPlay);
-	GameObject* button2 = new MenuButton(new LoaderParams(100, 300, 400, 100, "exitButton"), s_exitFromMenu);
+	GameObject* button1 = new MenuButton(new LoaderParams(400, 200, 400, 100, "playButton"), s_menuToPlay);
+	GameObject* button2 = new MenuButton(new LoaderParams(400, 400, 400, 100, "exitButton"), s_exitFromMenu);
 	m_gameObjects.push_back(button1);
 	m_gameObjects.push_back(button2);
 	std::cout << "entering MenuState\n";
