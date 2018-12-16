@@ -17,13 +17,16 @@ void PlayState::update() {
 			dynamic_cast<SDLGameObject*>(m_gameObjects[i])))
 		{
 			TheGame::Instance()->getStateMachine()->changeState(GameOverState::Instance());
+			return;
 		}
 	}
-	if (checkCollision(	// vector 범위 오류
-		dynamic_cast<SDLGameObject*>(m_gameObjects[0]),
-		dynamic_cast<SDLGameObject*>(m_gameObjects[15])))
-	{
-		TheGame::Instance()->getStateMachine()->changeState(WinState::Instance());
+	for (int i = m_gameObjects.size() - 1; i < m_gameObjects.size(); i++) {
+		if (checkCollision(
+			dynamic_cast<SDLGameObject*>(m_gameObjects[0]),
+			dynamic_cast<SDLGameObject*>(m_gameObjects[i])))
+		{
+			TheGame::Instance()->getStateMachine()->changeState(WinState::Instance());
+		}
 	}
 }
 
