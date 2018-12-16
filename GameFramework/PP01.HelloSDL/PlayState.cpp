@@ -64,8 +64,7 @@ bool PlayState::onEnter() {
 	GameObject* vertical_bd1 = new Wall(new LoaderParams(0, 0, 30, 800, "vertical")); m_gameObjects.push_back(vertical_bd1);
 	GameObject* vertical_bd2 = new Wall(new LoaderParams(1170, 0, 30, 800, "vertical")); m_gameObjects.push_back(vertical_bd2);
 
-	//GameObject* goal = new Goal(new LoaderParams(30, 740, 30, 30, "goal")); m_gameObjects.push_back(goal);
-	GameObject* goal = new Goal(new LoaderParams(200, 100, 30, 30, "goal")); m_gameObjects.push_back(goal);
+	GameObject* goal = new Goal(new LoaderParams(30, 740, 30, 30, "goal")); m_gameObjects.push_back(goal);
 
 	std::cout << "entering PlayState\n";
 	return true;
