@@ -12,6 +12,7 @@ public:
 	virtual Vector2D getPosition() { return this->m_position; }
 	virtual int getWidth() { return this->m_width; }
 	virtual int getHeight() { return this->m_height; }
+	virtual std::string getTextureID() { return this->m_textureID; }
 protected:
 	Vector2D m_position;
 	Vector2D m_velocity;

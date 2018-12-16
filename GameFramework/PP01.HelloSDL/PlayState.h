@@ -5,6 +5,9 @@
 #include "Game.h"
 #include "PauseState.h"
 #include "GameOverState.h"
+#include "Wall.h"
+#include "Goal.h"
+#include "WinState.h"
 
 class GameObject;
 
